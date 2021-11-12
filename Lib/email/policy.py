@@ -61,6 +61,10 @@ class EmailPolicy(Policy):
 
                            The default is 'long'.
 
+    fold_rfc2231        -- if True (the default) fold Mime parameters using
+                           RFC2231. Note that this format is not supported by
+                           the Microsoft Outlook mail client.
+
     header_factory      -- a callable that takes two arguments, 'name' and
                            'value', where 'name' is a header field name and
                            'value' is an unfolded header field value, and
@@ -87,6 +91,7 @@ class EmailPolicy(Policy):
     message_factory = EmailMessage
     utf8 = False
     refold_source = 'long'
+    fold_rfc2231 = True
     header_factory = HeaderRegistry()
     content_manager = raw_data_manager
 

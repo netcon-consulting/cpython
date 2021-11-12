@@ -2793,7 +2793,7 @@ def _refold_parse_tree(parse_tree, *, policy):
                 # 'charset' property on the policy.
                 charset = 'utf-8'
             want_encoding = True
-        if part.token_type == 'mime-parameters':
+        if policy.fold_rfc2231 and part.token_type == 'mime-parameters':
             # Mime parameter folding (using RFC2231) is extra special.
             _fold_mime_parameters(part, lines, maxlen, encoding)
             continue
